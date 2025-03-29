@@ -48,7 +48,7 @@ const Header = () => {
       <header className="w-full flex justify-between items-center px-4 py-3 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] bg-[#1e1e1e] h-16">
         <NavLink to="/">
           <div className="text-3xl font-bold">
-            <img src="../../public/logo.png" alt="" height='105px' width='130px' className="hover:opacity-80 transition-all duration-300 hover:scale-105 ml-2" />
+            <img src="/logo.png" alt="" height='105px' width='130px' className="hover:opacity-80 transition-all duration-300 hover:scale-105 ml-2" />
           </div>
         </NavLink>
         <nav className="flex items-center space-x-6">
