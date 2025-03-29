@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://golmaal-x4f5.onrender.com/api';
 
 // Helper function to get session ID
 const getSessionId = () => {
