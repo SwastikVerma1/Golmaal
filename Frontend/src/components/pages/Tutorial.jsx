@@ -79,6 +79,14 @@ const Tutorial = () => {
               <pre className="bg-gray-800 p-4 rounded-lg text-gray-300 overflow-x-auto">
                 <code>{`jaadu a = 10;
 while (a) {
+  if(a == 5) {
+    a = a-1;
+    print("5 found...");
+    continue;
+  }
+  if(a == 1){
+    break;
+  }
   print("a");
   a = a - 1;
 }`}</code>

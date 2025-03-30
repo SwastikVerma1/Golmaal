@@ -8,7 +8,7 @@ const AboutUs = () => {
     {
       name: "Sagar Gupta",
       role: "Language Creator",
-      image: "rickroll.jpg", 
+      image: "/Sagar.jpg", 
       github: "https://github.com/sagargupta35",
       linkedin: "https://www.linkedin.com/in/sagar-gupta-733b02290/",
       description: "Competitive Programmer and ML Enthusiast"

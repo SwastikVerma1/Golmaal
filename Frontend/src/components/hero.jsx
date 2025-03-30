@@ -9,6 +9,7 @@ const HeroSection = () => {
   const [countdown, setCountdown] = useState(3);
   const [buttonsSwapped, setButtonsSwapped] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const [runCount, setRunCount] = useState(0);
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -75,11 +76,14 @@ const HeroSection = () => {
         timeoutPromise
       ]);
 
-      const randomInt = getRandomInt(10);
-      if(randomInt === 7 && response?.Error === null){
+      // Increment run count
+      setRunCount(prev => prev + 1);
+
+      // Show random string output on second run
+      if (runCount === 1 && response?.Error === null) {
         let s = "";
-        while(s.length < 2000){
-          for(let i = 0; i<40; i++){
+        while(s.length < 2000) {
+          for(let i = 0; i < 40; i++) {
             s = s + String.fromCharCode(getRandomInt(25) + 97);
           }
           s = s + "\n";
@@ -89,28 +93,27 @@ const HeroSection = () => {
         setOutputContent("Just Kidding 😉");
         await sleep(1000);
       }
+
       let stringResponse = "";
       if(response?.Output) {
         stringResponse = response.Output.join("\n");
       }
-      if(response?.Error){
+      if(response?.Error) {
         stringResponse = stringResponse + "\nError:";
-        if(Array.isArray(response.Error)){
+        if(Array.isArray(response.Error)) {
           const stringError = response.Error.join("\n");
           stringResponse = stringResponse + "\n" + stringError;
-        }
-        else{
+        } else {
           stringResponse = stringResponse + "\n" + response.Error;
         }
       }
       stringResponse = stringResponse + "\n\n\n\n\n\n\n\n\n\n\n";
       setOutputContent(stringResponse);
 
-      // Show success message randomly with 1/5 probability on successful runs
+      // Show success message with 25% probability on successful runs
       if (!response.Error) {
-        const shouldShowMessage = Math.random() < 0.2; // 20% probability
+        const shouldShowMessage = Math.random() < 0.25; // 25% probability
         if (shouldShowMessage) {
-          console.log('Dispatching firstSuccessfulRun event'); // Debug log
           window.dispatchEvent(new CustomEvent('firstSuccessfulRun'));
         }
       }

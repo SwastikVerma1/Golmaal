@@ -25,12 +25,12 @@ const Rickroll = () => {
         // 1. It's a direct visit (not a refresh)
         // 2. User hasn't been rickrolled in this session
         // 3. User hasn't reached 300s in this session
-        if (isDirectVisit && !hasBeenRickrolled && !hasReached300s) {
+        if (isDirectVisit  && !hasReached300s) {
           await trackRickroll();
           // Mark this session as rickrolled
-          sessionStorage.setItem('hasBeenRickrolled', 'true');
+          // sessionStorage.setItem('hasBeenRickrolled', 'true');
           // Dispatch event to stop clocks
-          window.dispatchEvent(new CustomEvent('stopClocks'));
+          // window.dispatchEvent(new CustomEvent('stopClocks'));
         }
         
         // Always fetch updated stats
