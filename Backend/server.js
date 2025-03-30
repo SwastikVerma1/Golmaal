@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import Stats from './models/Stats.js';
 import TempUserData from './models/TempUserData.js';
 import fetch from 'node-fetch';
+const CODEURL = "https://golmaal-wtz7.onrender.com/evaluate";
+const PINGURL = "https://golmaal-wtz7.onrender.com/ping"
+
 
 dotenv.config();
 
@@ -22,7 +25,7 @@ app.use(cors({
 app.use(express.json());
 
 app.get("/api/ping", (req, res) => {
-  res.json({message: "pong"});
+  res.json({message: "ping"});
 })
 
 // MongoDB Connection
@@ -188,7 +191,7 @@ app.post('/api/execute', async (req, res) => {
       return res.status(400).json({ error: 'No code provided' });
     }
 
-    const response = await fetch(process.env.CODEURL, {
+    const response = await fetch(CODEURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -206,8 +209,8 @@ app.post('/api/execute', async (req, res) => {
     //console.log(data);
     // Format the response to match the expected structure
     res.json({
-      "output": data.Output  || null,
-      "error": data.Error  || null
+      "Output": data.Output  || null,
+      "Error": data.Error  || null
     });
   } catch (error) {
     // console.error('Error executing code:', error);
@@ -223,7 +226,7 @@ app.listen(PORT, () => {
 
 async function pingFlask() {
   try{
-    const response = await fetch(process.env.PINGURL, {method: "GET"});
+    const response = await fetch(PINGURL, {method: "GET"});
     if(!response.ok){
       console.error("ping failed: " + response);
     } else{

@@ -99,7 +99,7 @@ export const updateReached300s = async () => {
 
 export const executeCode = async (code) => {
   try {
-    const response = await fetch(`${process.env.API_BASE_URL}/api/execute`, {
+    const response = await fetch(`${API_BASE_URL}/execute`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
