@@ -2,6 +2,7 @@
 node_modules/
 venv/
 /Backend/.env
+/Frontend/.env
 .env/
 __pycache__/
 

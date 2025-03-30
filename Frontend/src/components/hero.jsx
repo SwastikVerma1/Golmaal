@@ -76,7 +76,7 @@ const HeroSection = () => {
       ]);
 
       const randomInt = getRandomInt(10);
-      if(randomInt === 7 && response.error === null){
+      if(randomInt === 7 && response?.Error === null){
         let s = "";
         while(s.length < 2000){
           for(let i = 0; i<40; i++){
@@ -90,13 +90,13 @@ const HeroSection = () => {
         await sleep(1000);
       }
       let stringResponse = "";
-      if(response.output) {
-        stringResponse = response.output.join("\n");
+      if(response?.Output) {
+        stringResponse = response.Output.join("\n");
       }
-      if(response.error){
+      if(response?.Error){
         stringResponse = stringResponse + "\nError:";
-        if(Array.isArray(response.error)){
-          const stringError = response.error.join("\n");
+        if(Array.isArray(response.Error)){
+          const stringError = response.Error.join("\n");
           stringResponse = stringResponse + "\n" + stringError;
         }
         else{
@@ -107,7 +107,7 @@ const HeroSection = () => {
       setOutputContent(stringResponse);
 
       // Show success message randomly with 1/5 probability on successful runs
-      if (!response.error) {
+      if (!response.Error) {
         const shouldShowMessage = Math.random() < 0.2; // 20% probability
         if (shouldShowMessage) {
           console.log('Dispatching firstSuccessfulRun event'); // Debug log

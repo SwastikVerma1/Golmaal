@@ -21,6 +21,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/api/ping", (req, res) => {
+  res.json({message: "pong"});
+})
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/golmaal')
   .then(() => console.log('Connected to MongoDB'))
@@ -128,6 +132,8 @@ app.post('/api/user/session', async (req, res) => {
   }
 });
 
+
+
 // 4. Get temporary user data
 app.get('/api/user/session/:sessionId', async (req, res) => {
   try {
@@ -214,3 +220,18 @@ app.post('/api/execute', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 }); 
+
+async function pingFlask() {
+  try{
+    const response = await fetch(process.env.PINGURL, {method: "GET"});
+    if(!response.ok){
+      console.error("ping failed: " + response);
+    } else{
+      console.log("ping success");
+    }
+  } catch (err){
+    console.error("Ping failed: " + err.message)
+  }
+}
+
+setInterval(pingFlask, 300000);

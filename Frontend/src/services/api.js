@@ -99,13 +99,13 @@ export const updateReached300s = async () => {
 
 export const executeCode = async (code) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/execute`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/api/execute`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'x-session-id': getSessionId()
       },
-      body: JSON.stringify({ "code":code })
+      body: JSON.stringify({ "code": code })
     });
     
     if (!response.ok) {
@@ -114,6 +114,7 @@ export const executeCode = async (code) => {
     }
     
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.error('Error executing code:', error);
