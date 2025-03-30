@@ -100,7 +100,7 @@ const HeroSection = () => {
           stringResponse = stringResponse + "\n" + stringError;
         }
         else{
-          stringResponse = stringResponse + "\n" + response.error;
+          stringResponse = stringResponse + "\n" + response.Error;
         }
       }
       stringResponse = stringResponse + "\n\n\n\n\n\n\n\n\n\n\n";
