@@ -20,12 +20,12 @@ const MonacoEditor = forwardRef((props, ref) => {
 
         // Define syntax highlighting
         monaco.languages.setMonarchTokensProvider("monkey", {
-            keywords: ["jaadu", "golmaal", "ye_lo", "if", "else", "true", "false", "print", "while", "break", "continue","len"],
+            keywords: ["maan_le", "golmaal", "ye_lo", "if", "else", "true", "false", "print", "while", "break", "continue","len"],
             operators: ["=", "+", "-", "*", "/", "==", "!=", ">", "<"],
             symbols: /[=><!~?:&|+\-*\/\^%]+/,
             tokenizer: {
                 root: [
-                    [/\b(jaadu|golmaal|ye_lo|if|else|true|false|print|while|break|continue|len)\b/, "keyword"],
+                    [/\b(maan_le|golmaal|ye_lo|if|else|true|false|print|while|break|continue|len)\b/, "keyword"],
                     [/\b[a-zA-Z_]\w*(?=\()/, "function"],
                     [/\b[a-zA-Z_]\w*\b/, "identifier"],
                     [/\b\d+\b/, "number"],
