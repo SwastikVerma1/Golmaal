@@ -46,9 +46,10 @@ const Tutorial = () => {
             <div className="bg-gray-900/90 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50 shadow-xl hover:shadow-[#e8984a]/20 transition-all duration-300">
               <h3 className="text-xl font-semibold text-[#e8984a] mb-3">VARIABLE DECLARATION</h3>
               <div className="space-y-2 text-gray-300">
-                <p><span className="text-green-400">jaadu a = 10;</span></p>
+                <p><span className="text-green-400">variables are declared using the <span className='text-[#ec625d]'>maan_le</span> keyword</span></p>
+                <p><span className="text-green-400">maan_le a = 10;</span></p>
                 <p><span className="text-green-400">a = false;</span> // Re-assignment is allowed if the variable is already declared</p>
-                <p><span className="text-green-400">jaadu b = [1, false, golmaal(a){"{ ye_lo a * 2 }"}];</span></p>
+                <p><span className="text-green-400">maan_le b = [1, false, golmaal(a){"{ ye_lo a * 2 }"}];</span></p>
               </div>
             </div>
 
@@ -77,7 +78,7 @@ const Tutorial = () => {
             <div className="bg-gray-900/90 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50 shadow-xl hover:shadow-[#e8984a]/20 transition-all duration-300">
               <h3 className="text-xl font-semibold text-[#e8984a] mb-3">LOOPS</h3>
               <pre className="bg-gray-800 p-4 rounded-lg text-gray-300 overflow-x-auto">
-                <code>{`jaadu a = 10;
+                <code>{`maan_le a = 10;
 while (a) {
   if(a == 5) {
     a = a-1;
@@ -95,9 +96,9 @@ while (a) {
 
             <div className="bg-gray-900/90 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50 shadow-xl hover:shadow-[#e8984a]/20 transition-all duration-300">
               <h3 className="text-xl font-semibold text-[#e8984a] mb-3">FUNCTIONS</h3>
-              <p className="text-gray-300 mb-2">Functions are also expressions in Golmaal.</p>
+              <p className="text-gray-300 mb-2">Functions are also expressions in Golmaal and are declared using <span className='text-[#ec625d]'>golmaal</span> keyword</p>
               <pre className="bg-gray-800 p-4 rounded-lg text-gray-300 overflow-x-auto">
-                <code>{`jaadu a = golmaal(a, b) {
+                <code>{`maan_le a = golmaal(a, b) {
   ye_lo a + b * 2;
 };`}</code>
               </pre>
@@ -105,13 +106,14 @@ while (a) {
             </div>
 
             <div className="bg-gray-900/90 backdrop-blur-md rounded-2xl p-6 border border-gray-700/50 shadow-xl hover:shadow-[#e8984a]/20 transition-all duration-300">
-              <h3 className="text-xl font-semibold text-[#e8984a] mb-3">CLOSURES</h3>
-              <pre className="bg-gray-800 p-4 rounded-lg text-gray-300 overflow-x-auto">
-                <code>{`jaadu a = golmaal(a, b) {
+              <h3 className="text-xl font-semibold text-[#e8984a] mb-1">CLOSURES</h3>
+              <a className="text-sm font-semibold text-[#ec625d] mb-2" href="https://stackoverflow.com/questions/36636/what-is-a-closure">What is a closure?</a>
+              <pre className="bg-gray-800 p-4 mt-2 rounded-lg text-gray-300 overflow-x-auto">
+                <code>{`maan_le a = golmaal(a, b) {
   ye_lo a + b * 2;
 };
 
-jaadu b = golmaal(a, b) {
+maan_le b = golmaal(a, b) {
   a = a + 1;
   ye_lo a * b(a, 2);
 };
